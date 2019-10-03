@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <title>WebJars Demo</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h3>Email extractor</h3>
+<div class="container"><br/>
+    <form action="#" th:action="@{/extract}" th:object="${emailAddress}" method="post">
+        <!--        <input type="text" th:field="*{email}"/>-->
+        <textarea rows="20" cols="80" th:field="*{email}"></textarea>
+        <input type="submit" value="submit"/>
+    </form>
+
+    <!--<div class=" alert alert-success
+    ">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <strong>Success!</strong> It is working as we expected.
+    </div>-->
+
+</div>
+
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
