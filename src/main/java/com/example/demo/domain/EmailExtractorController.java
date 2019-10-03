@@ -1,11 +1,14 @@
-package com.example.demo.controller;
+package com.example.demo.domain;
 
 import com.example.demo.model.EmailAddress;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Set;
 
 /**
  * @author Andrew Han
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 
 @Controller
-public class WebController {
+public class EmailExtractorController {
+
+    @Autowired
+    private EmailExtractorService emailExtractorService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -22,8 +28,10 @@ public class WebController {
     }
 
     @PostMapping("/extract")
-    public String extract(@ModelAttribute EmailAddress emailAddress) {
-        System.out.println(emailAddress);
+    public String extract(@ModelAttribute EmailAddress emailAddress, Model model) {
+        Set<String> extract = emailExtractorService.extract(String.valueOf(emailAddress));
+        model.addAttribute("emailAddress", extract);
+
         return "result";
     }
 

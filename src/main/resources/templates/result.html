@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>result</title>
 </head>
 <body>
 
-
+<h1>result</h1>
+<!--<tr th:each="emails : ${emailAddress}">-->
+<p th:text="${emailAddress}"/>
+<!--</tr>-->
 </body>
 </html>

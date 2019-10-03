@@ -6,20 +6,27 @@ package com.example.demo.model;
  */
 public class EmailAddress {
 
-    private String email;
+    private String value;
 
-    public String getEmail() {
-        return email;
+    public EmailAddress(String emailAddress) {
+        this.value = emailAddress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public EmailAddress() {
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
     public String toString() {
         return "EmailAddress{" +
-                "email='" + email + '\'' +
+                "value='" + value + '\'' +
                 '}';
     }
 }
